@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container1">
+        <form id="form1">
+            <div class="row">
+                <div class="col-5 field">
+                    <div style="font-weight: 600">Thông tin Tài sản</div>
+                    <div class="form__group field">
+
+                        <input type="input" class="form__field"
+                            placeholder="Nhập từ khoá tìm kiếm, số giấy chứng nhận..." name="name" id='input1' />
+                        <label for="input1" class="form__label">
+                            <img src="./img/search_svg.svg" alt="">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-5 field">
+                    <div style="font-weight: 600">Thông tin Bên liên quan/ Chủ sở hữu</div>
+                    <div class="form__group field">
+
+                        <input type="input" class="form__field"
+                            placeholder="Nhập từ khoá tìm kiếm, số CCCD, họ và tên..." name="name" id='input2' />
+                        <label for="input2" class="form__label">
+                            <img src="./img/search_svg.svg" alt="">
+                        </label>
+                    </div>
+                </div>
+                <div onclick="show_form()" class="col-2 " style="position: relative;">
+                    <div style="
+                position: absolute;
+                bottom: 0;
+                width:44px;
+                height:36px;
+                /* border: 1px solid #3B82F6; */
+                border: 1px solid #E5E7EB;
+                
+                box-sizing: border-box;
+                box-shadow: 0px 1px 2px rgba(31, 41, 55, 0.08);
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items :center; 
+                ">
+                        <img class="changeIc_morong" style="display: none;" src="./img/Icon_morong.svg" alt="">
+                        <img class="changeIc_morong" src="./img/Icon_morong_2.svg" alt="">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="search_nangcao container1" style="display: none;">
+                <div style="position: absolute; top: -24px; right: 12%; z-index: 10;">
+                    <svg width="30" height="20">
+                        <polyline points="30,20 15,5  0,20 " fill="#fff" stroke="#3B82F6" stroke-linejoin="miter" />
+                    </svg>
+                </div>
+                <div class="form_">
+                    <div class="row align-items-center">
+                        <div class="col-auto my-1">
+                            <p style="margin-bottom:0; font-weight: 600">Tìm kiếm nâng cao</p>
+                        </div>
+                        <div class="col-auto my-1">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                <label class="custom-control-label" for="customControlAutosizing">Kết hợp các trường dữ
+                                    liệu</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center" style="
+                border: 1px solid #E5E7EB;
+                box-sizing: border-box;
+                border-radius: 8px;
+                padding: 20px 24px; 
+                background-color: #F9FAFB;">
+                        <div class="col">
+                            <div>Tài sản</div>
+                            <select class="form-select" aria-label="Default select example" id="selecbox1">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <div>Giấy chứng nhận</div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="giaychungnhan">
+                        </div>
+                        <div class="col">
+                            <div>Thửa đất</div>
+                            <input type="text" class="form-control" placeholder="Số thửa đất" aria-label="thuadat">
+                        </div>
+                        <div class="col">
+                            <div>Tờ bản đồ</div>
+                            <input type="text" class="form-control" placeholder="Số tờ bản đồ" aria-label="bando">
+                        </div>
+                        <div class="col">
+                            <div>Địa chỉ</div>
+                            <input type="text" class="form-control" placeholder="Địa chỉ" aria-label="diachi">
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center" style="
+                border: 1px solid #E5E7EB;
+                box-sizing: border-box;
+                border-radius: 8px;
+                padding: 20px 24px; 
+                background-color: #F9FAFB;
+                margin-top: 16px;">
+                        <div class="col">
+                            <div>Tài sản</div>
+                            <select class="form-select" aria-label="Default select example" id="selecbox2">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <div>Giấy chứng nhận</div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="giaychungnhan">
+                        </div>
+                        <div class="col">
+                            <div>Thửa đất</div>
+                            <input type="text" class="form-control" placeholder="Số thửa đất" aria-label="thuadat">
+                        </div>
+                        <div class="col">
+                            <div>Tờ bản đồ</div>
+                            <input type="text" class="form-control" placeholder="Số tờ bản đồ" aria-label="bando">
+                        </div>
+                        <div class="col">
+                            <div>Địa chỉ</div>
+                            <input type="text" class="form-control" placeholder="Địa chỉ" aria-label="diachi">
+                        </div>
+                    </div>
+                    <div style="align-self: flex-end; margin-top: 24px;">
+                        <div class="btn btn-light" style="margin-right: 20px">Xoá điều kiện</div>
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="info_search">
+            <div>Kết quả tìm kiếm cho từ khoá:</div>
+            <div>Tài sản: abcde</div>
+            <div>Và Bên liên quan: addd</div>
+            <div>35 Thông tin ngăn chặn; 2 Hợp đồng, giao dịch; 0 Thông tin tham khảo</div>
+        </div>
+        <div class="panel-group ">
+
+
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button onclick="setDefaultTabOpen(1)" class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                        data-bs-target="#daduyet" type="button" role="tab" aria-controls="daduyet"
+                        aria-selected="true">Thông tin ngăn chặn <span
+                            style="color:#fff;border-radius: 4px;padding: 0px 6px;background-color: #9CA3AF;">12</span></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button onclick="setDefaultTabOpen(3)" class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#thamkhao" type="button" role="tab" aria-controls="thamkhao"
+                        aria-selected="false">Thông tin tham khảo <span
+                            style="color:#fff;border-radius: 4px;padding: 0px 6px;background-color: #9CA3AF;">34</span></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button onclick="setDefaultTabOpen(2)" class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                        data-bs-target="#hopdong" type="button" role="tab" aria-controls="hopdong"
+                        aria-selected="false">Hợp đồng, giao dịch <span
+                            style="color: #fff;border-radius: 4px;padding: 0px 6px;background-color: #9CA3AF;">566</span></button>
+                </li>
+
+                <li id="prevent-them-moi"><a href="${printViewUrl}" target="_blank"><input type="button"
+                            id="add-prevent" class="form-control luu" value="Bản in"></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content accordion accordion-flush" id="accordionPanelsStayOpenExample">
+            <div id="daduyet" class="accordion-item tab-pane fade show active">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                        <div>Thông tin ngăn chặn </div>
+                        <div style="margin-left: auto;">1 - 20 trong 35</div>
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <div style="border-radius: 10px;overflow:hidden;">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="thamkhao" class="accordion-item tab-pane fade">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
+
+                        <div>Hợp đồng, giao dịch </div>
+                        <div style="margin-left: auto;">1 - 20 trong 35</div>
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        <div style="border-radius: 10px;overflow:hidden;">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="hopdong" class="accordion-item tab-pane fade">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">
+
+                        <div>Thông tin tham khảo </div>
+                        <div style="margin-left: auto;">1 - 20 trong 35</div>
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingThree">
+                    <div class="accordion-body">
+                        <div style="border-radius: 10px;overflow:hidden;">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <script>
+        function sbfrom(e) {
+            console.log("abcd")
+            $('.accordion-button').attr('style', 'display: flex !important');
+            $('.nav-pills ').attr('style', 'display: none !important');
+            document.getElementById("daduyet").className = "accordion-item tab-pane fade show active";
+            document.getElementById("hopdong").className = "accordion-item tab-pane fade show active";
+            document.getElementById("thamkhao").className = "accordion-item tab-pane fade show active";
+            document.querySelector("#hopdong  button").className = "accordion-button collapsed"
+            document.querySelector("#panelsStayOpen-collapseThree").className = "accordion-collapse collapse"
+            $(".info_search").css("display", "unset")
+        }
+        $("#form1").submit(function (e) {
+            e.preventDefault();
+            sbfrom();
+        });
+       
+
+
+        document.getElementById('form1').onkeydown = function (e) {
+            if (e.keyCode == 13) {
+            e.preventDefault();
+                sbfrom();
+        };
+    }
+        function show_form() {
+
+            console.log($(".search_nangcao"))
+            if ($(".search_nangcao").css('display') == "block") {
+                $(".search_nangcao").css("display", "none")
+                document.getElementsByClassName("changeIc_morong")[0].style.display = "none"
+                document.getElementsByClassName("changeIc_morong")[1].style.display = "unset"
+            } else {
+                $(".search_nangcao").css("display", "block")
+
+                document.getElementsByClassName("changeIc_morong")[0].style.display = "unset"
+                document.getElementsByClassName("changeIc_morong")[1].style.display = "none"
+            }
+
+        }
+    </script>
+</body>
+
+</html>
